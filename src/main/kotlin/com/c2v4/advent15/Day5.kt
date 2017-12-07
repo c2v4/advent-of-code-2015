@@ -9,11 +9,10 @@ val predicates = listOf(
             }.size > 2
         },
         { string ->
-            (1 until string.length).fold(false,
-                    { acc: Boolean, i: Int -> acc or (string[i] == string[i - 1]) })
+            (1 until string.length).any { string[it] == string[it - 1] }
         },
-        {
-            string -> setOf("ab", "cd", "pq","xy").none { string.contains(it) }
+        { string ->
+            setOf("ab", "cd", "pq", "xy").none { string.contains(it) }
         }
 )
 
